@@ -1,6 +1,8 @@
+import CrossIcon from "./components/icons/CrossIcon";
+
 const App = () => {
   return (
-    <div className="bg-[url('./assets/images/bg-mobile-light.jpg')] bg-no-repeat">
+    <div className="bg-[url('./assets/images/bg-mobile-light.jpg')] bg-contain bg-no-repeat bg-gray-300 min-h-screen">
      
     <header className="container mx-auto px-4">
     <div className="flex justify-between">
@@ -15,28 +17,36 @@ const App = () => {
      </form>
      </header>
 
-     
+
     <main className="container mx-auto px-4 mt-8">
-      <article>
-        <span>circulo</span>
-        <p>complete javascript...</p>
-        <button>x</button>
+    <div className="rounded-md bg-white">
+    <article className="flex gap-4  border-b border-b-gray-300 py-4 px-4">
+        <button className="border-b border-b-gray-30 flex-none inline-block h-5 w-5 rounded-full"></button>
+        <p className="grow text-gray-600">complete javascript...</p>
+        <button><CrossIcon /></button>
       </article>
-      <article>
-        <span>circulo</span>
-        <p>complete javascript...</p>
-        <button>x</button>
+     
+      <article className="flex gap-4  border-b border-b-gray-300 py-4 px-4">
+        <button className="border-b border-b-gray-30 flex-none inline-block h-5 w-5 rounded-full"></button>
+        <p className="grow text-gray-600">complete javascript...</p>
+        <button><CrossIcon /></button>
       </article>
-      <article>
-        <span>circulo</span>
-        <p>complete javascript...</p>
-        <button>x</button>
+
+      <article className="flex gap-4  border-b border-b-gray-300 py-4 px-4">
+        <button className="border-b border-b-gray-30 flex-none inline-block h-5 w-5 rounded-full"></button>
+        <p className="grow text-gray-600">complete javascript...</p>
+        <button><CrossIcon /></button>
       </article>
-      <section>
-        <span>5 items</span>
-        <button>clear</button>
-      </section>
+
+
+      <section className="py-4 px-4 flex justify-between">
+        <span className="text-gray-400">5 items</span>
+        <button className="text-gray-400">clear</button>
+      </section> 
+    </div>
     </main>
+
+
     <section className="container mx-auto px-4">
       <button>all</button>
       <button>active</button>
