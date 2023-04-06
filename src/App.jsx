@@ -1,4 +1,5 @@
 import CrossIcon from "./components/icons/CrossIcon";
+import MoonIcon from "./components/icons/MoonIcon";
 
 const App = () => {
   return (
@@ -8,7 +9,7 @@ const App = () => {
     <div className="flex justify-between">
     <h1 className="uppercase text-white text-3xl font-semibold tracking-[0.3em]">Todo</h1>
       <button>
-        luna
+        <MoonIcon  />
       </button>
       </div>
     <form className="mt-8 flex items-center gap-4 container mx-auto py-4 px-4 bg-white overflow-hidden rounded-md">
