@@ -19,20 +19,20 @@ const App = () => {
 
 
     <main className="container mx-auto px-4 mt-8">
-    <div className="rounded-md bg-white">
-    <article className="flex gap-4  border-b border-b-gray-300 py-4 px-4">
+    <div className="rounded-md bg-white [&>article]:p-4">
+    <article className="flex gap-4  border-b border-b-gray-300">
         <button className="border-b border-b-gray-30 flex-none inline-block h-5 w-5 rounded-full"></button>
         <p className="grow text-gray-600">complete javascript...</p>
         <button><CrossIcon /></button>
       </article>
      
-      <article className="flex gap-4  border-b border-b-gray-300 py-4 px-4">
+      <article className="flex gap-4  border-b border-b-gray-300">
         <button className="border-b border-b-gray-30 flex-none inline-block h-5 w-5 rounded-full"></button>
         <p className="grow text-gray-600">complete javascript...</p>
         <button><CrossIcon /></button>
       </article>
 
-      <article className="flex gap-4  border-b border-b-gray-300 py-4 px-4">
+      <article className="flex gap-4  border-b border-b-gray-300">
         <button className="border-b border-b-gray-30 flex-none inline-block h-5 w-5 rounded-full"></button>
         <p className="grow text-gray-600">complete javascript...</p>
         <button><CrossIcon /></button>
@@ -47,12 +47,14 @@ const App = () => {
     </main>
 
 
-    <section className="container mx-auto px-4">
-      <button>all</button>
-      <button>active</button>
-      <button>complete</button>
+    <section className="container mx-auto mt-8 px-4">
+    <div className="flex justify-center bg-white p-4 rounded-md gap-4">
+    <button className="text-blue-600">all</button>
+      <button className="hover:text-blue-600">active</button>
+      <button className="hover:text-blue-600">complete</button>
+    </div>
     </section>
-    <p>Drag and drop to reorder list</p>
+    <p className="text-center mt-8">Drag and drop to reorder list</p>
    
 
 
