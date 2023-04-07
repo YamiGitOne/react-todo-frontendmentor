@@ -2,14 +2,14 @@
 import Header from "./components/Header";
 import TodoComputed from "./components/TodoComputed";
 import TodoCreate from "./components/TodoCreate";
-import TodoList from "./components/TodoList";
+import TodoList from "./components/TodoList"
 
 import TodoFilter from "./components/TodoFilter";
 
 
 const App = () => {
   return (
-    <div className="bg-[url('./assets/images/bg-mobile-light.jpg')] bg-contain bg-no-repeat bg-gray-300 min-h-screen">
+    <div className="min-h-screen bg-gray-300 bg-[url('./assets/images/bg-mobile-light.jpg')] bg-contain bg-no-repeat">
     
     <Header />
 
@@ -17,7 +17,7 @@ const App = () => {
 
     <TodoCreate />
 
-    {/* esta dando error <TodoList /> */}
+ <TodoList />
 
     <TodoComputed />
 
