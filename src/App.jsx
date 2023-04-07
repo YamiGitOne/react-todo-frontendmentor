@@ -3,11 +3,18 @@ import Header from "./components/Header";
 import TodoComputed from "./components/TodoComputed";
 import TodoCreate from "./components/TodoCreate";
 import TodoList from "./components/TodoList"
-
 import TodoFilter from "./components/TodoFilter";
+import { useState } from "react";
 
-
+const initialStateTodos = [
+  {id: 1, title: "complete online...", completed: true},
+  {id: 2, title: "go to", completed: false},
+  {id: 3, title: "10 minutes", completed: false},
+  {id: 4, title: "pick up groceries", completed: false},
+  {id: 5, title: "completed todo app", completed: false},
+]
 const App = () => {
+  const [todos, setTodos] = useState(initialStateTodos);
   return (
     <div className="min-h-screen bg-gray-300 bg-[url('./assets/images/bg-mobile-light.jpg')] bg-contain bg-no-repeat">
     
@@ -17,7 +24,7 @@ const App = () => {
 
     <TodoCreate />
 
- <TodoList />
+    <TodoList todos={todos}/>
 
     <TodoComputed />
 
