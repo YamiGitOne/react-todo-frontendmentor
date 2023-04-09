@@ -1,8 +1,28 @@
-const TodoCreate = () => {
+import { useState } from "react";
+
+const TodoCreate = ({createTodo}) => {
+
+  const [title, setTitle] = useState('')
+  const handleSubmitAddTodo = (e) => {
+   e.preventDefault();
+   
+    if (!title.trim()) {
+      return setTitle('');
+    }
+    createTodo(title);
+   setTitle("");
+  };
+
     return (
-      <form className="mt-8 flex items-center gap-4 container mx-auto py-4 px-4 bg-white overflow-hidden rounded-md">
+      <form onSubmit={handleSubmitAddTodo} className="mt-8 flex items-center gap-4 container mx-auto py-4 px-4 bg-white overflow-hidden rounded-md">
      <span className="inline-block h-5 w-5 rounded-full border-2"></span>
-      <input className="w-full text-gray-400" type="text" placeholder="create a new todo"></input>
+      <input 
+      className="w-full text-gray-400" 
+      type="text" 
+      placeholder="create a new todo"
+      value={title}
+      onChange={(e) => setTitle(e.target.value)}  
+      />
      </form>
     );
 };
