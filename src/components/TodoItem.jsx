@@ -1,13 +1,11 @@
 import IconCheck from "./IconCheck";
 import CrossIcon from "./icons/CrossIcon";
 
-const TodoItem = ({todo}) => {
+const TodoItem = ({todo, removeTodo, updateTodo}) => {
 const{ id, title, completed } = todo;
 
     return (
         <article className="flex gap-4  border-b border-b-gray-300">
-       {/*  <button className="flex h-5 w-5 border-b border-b-gray-30 flex-none rounded-full">
-        </button> */}
         <button
          className={`${
             completed
@@ -16,13 +14,15 @@ const{ id, title, completed } = todo;
               : 
               "inline-block h-5 w-5 flex-none rounded-full border-2"
               }`}
+              onClick={() => updateTodo(id)}
               >
+
             {completed && <IconCheck />}
             
         </button>
 
-        <p className="grow text-gray-600">{title}</p>
-        <button>
+        <p className={`grow text-gray-600 ${completed && "line-through"}`}>{title}</p>
+        <button onClick={() => removeTodo(id)}>
         <CrossIcon />
         </button>
         </article>

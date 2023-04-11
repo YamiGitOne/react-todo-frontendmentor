@@ -10,7 +10,7 @@ const initialStateTodos = [
   {id: 1, title: "complete online...", completed: true},
   {id: 2, title: "go to", completed: false},
   {id: 3, title: "10 minutes", completed: false},
-  {id: 4, title: "pick up groceries", completed: false},
+  {id: 4, title: "pick up groceries", completed: true},
   {id: 5, title: "completed todo app", completed: false},
 ]
 const App = () => {
@@ -19,12 +19,21 @@ const App = () => {
   const createTodo = (title) => {
     const newTodo = {
       id: Date.now(),
-      title,
+      title: title.trim(),
       completed: false,
     };
     setTodos([...todos, newTodo]);
   };
 
+const removeTodo = (id) => {
+  setTodos(todos.filter((todo) => todo.id !== id)
+  );
+};
+
+const updateTodo = (id) => {
+setTodos( todos.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo)
+);
+};
   return (
     <div className="min-h-screen bg-gray-300 bg-[url('./assets/images/bg-mobile-light.jpg')] bg-contain bg-no-repeat">
     
@@ -34,7 +43,7 @@ const App = () => {
 
     <TodoCreate createTodo={createTodo} />
 
-    <TodoList todos={todos} />
+    <TodoList todos={todos} removeTodo={removeTodo} updateTodo={updateTodo}/>
 
     <TodoComputed />
 
