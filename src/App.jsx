@@ -7,7 +7,7 @@ import TodoFilter from "./components/TodoFilter";
 import { useState } from "react";
 
 const initialStateTodos = [
-  {id: 1, title: "complete online...", completed: false},
+  {id: 1, title: "complete online...", completed: true},
   {id: 2, title: "go to", completed: false},
   {id: 3, title: "10 minutes", completed: false},
   {id: 4, title: "pick up groceries", completed: false},
@@ -39,6 +39,20 @@ const computedItemsLeft = todos.filter((todo) => !todo.completed).length;
 const clearCompleted = () => {
   setTodos(todos.filter((todo) => !todo.completed));
 };
+
+const[filter, setFilter] = useState("all");
+const filteredTodos = () =>{
+  switch (filter) {
+    case "all":
+      return todos;
+    case "active":
+      return todos.filter((todo) => !todo.completed);
+    case "completed":
+      return todos.filter((todo) => todo.completed);
+      return todos;  
+}
+}
+
   return (
     <div className="min-h-screen bg-gray-300 bg-[url('./assets/images/bg-mobile-light.jpg')] bg-contain bg-no-repeat">
     
@@ -48,7 +62,7 @@ const clearCompleted = () => {
 
     <TodoCreate createTodo={createTodo} />
 
-    <TodoList todos={todos} removeTodo={removeTodo} updateTodo={updateTodo}/>
+    <TodoList todos={filteredTodos()} removeTodo={removeTodo} updateTodo={updateTodo}/>
 
     <TodoComputed computedItemsLeft={computedItemsLeft}  clearCompleted={clearCompleted}/>
 
