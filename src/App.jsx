@@ -7,10 +7,10 @@ import TodoFilter from "./components/TodoFilter";
 import { useState } from "react";
 
 const initialStateTodos = [
-  {id: 1, title: "complete online...", completed: true},
+  {id: 1, title: "complete online...", completed: false},
   {id: 2, title: "go to", completed: false},
   {id: 3, title: "10 minutes", completed: false},
-  {id: 4, title: "pick up groceries", completed: true},
+  {id: 4, title: "pick up groceries", completed: false},
   {id: 5, title: "completed todo app", completed: false},
 ]
 const App = () => {
@@ -31,8 +31,13 @@ const removeTodo = (id) => {
 };
 
 const updateTodo = (id) => {
-setTodos( todos.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo)
+setTodos(todos.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo)
 );
+};
+
+const computedItemsLeft = todos.filter((todo) => !todo.completed).length;
+const clearCompleted = () => {
+  setTodos(todos.filter((todo) => !todo.completed));
 };
   return (
     <div className="min-h-screen bg-gray-300 bg-[url('./assets/images/bg-mobile-light.jpg')] bg-contain bg-no-repeat">
@@ -45,7 +50,7 @@ setTodos( todos.map(todo => todo.id === id ? {...todo, completed: !todo.complete
 
     <TodoList todos={todos} removeTodo={removeTodo} updateTodo={updateTodo}/>
 
-    <TodoComputed />
+    <TodoComputed computedItemsLeft={computedItemsLeft}  clearCompleted={clearCompleted}/>
 
     <TodoFilter />
 
