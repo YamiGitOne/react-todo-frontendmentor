@@ -41,6 +41,7 @@ const clearCompleted = () => {
 };
 
 const[filter, setFilter] = useState("all");
+const changeFilter = (filter) => setFilter(filter)
 const filteredTodos = () =>{
   switch (filter) {
     case "all":
@@ -66,7 +67,7 @@ const filteredTodos = () =>{
 
     <TodoComputed computedItemsLeft={computedItemsLeft}  clearCompleted={clearCompleted}/>
 
-    <TodoFilter />
+    <TodoFilter changeFilter={changeFilter} />
 
     </main>
 
