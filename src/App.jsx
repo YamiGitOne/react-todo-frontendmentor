@@ -66,6 +66,7 @@ const filteredTodos = () =>{
     <TodoList todos={filteredTodos()} removeTodo={removeTodo} updateTodo={updateTodo}/>
 
     <TodoComputed computedItemsLeft={computedItemsLeft}  clearCompleted={clearCompleted}/>
+    <TodoComputed computedItemsLeft={computedItemsLeft}  clearCompleted={clearCompleted}/>
 
     <TodoFilter changeFilter={changeFilter} />
 
