@@ -55,7 +55,7 @@ const filteredTodos = () =>{
 }
 
   return (
-    <div className="min-h-screen bg-gray-300 bg-[url('./assets/images/bg-mobile-light.jpg')] bg-contain bg-no-repeat">
+    <div className="min-h-screen bg-gray-300 bg-[url('./assets/images/bg-mobile-light.jpg')] bg-contain bg-no-repeat dark:bg-gray-900">
     
     <Header />
 
@@ -74,7 +74,7 @@ const filteredTodos = () =>{
 
 
    
-    <footer className="text-center mt-8">Drag and drop to reorder list</footer>
+    <footer className="dark:bg-gray-800 text-center mt-8">Drag and drop to reorder list</footer>
    
 
 
