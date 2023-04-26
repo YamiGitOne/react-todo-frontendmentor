@@ -1,12 +1,21 @@
+import {useState} from "react";
 import MoonIcon from "./icons/MoonIcon";
+import IconSun from "./icons/IconSun";
 
 const Header = () => {
+  const [darkMode, setDarkMode] = useState(false);
+  const handleClickToggleTheme = () => {
+
+  }
     return (
         <header className="container mx-auto px-4">
     <div className="flex justify-between">
     <h1 className="uppercase text-white text-3xl font-semibold tracking-[0.3em]">Todo</h1>
-      <button>
-        <MoonIcon />
+      <button onClick={() => setDarkMode(!darkMode)}>
+        {
+          darkMode ? <IconSun />: <MoonIcon /> 
+        }
+
       </button>
       </div>
      </header>
