@@ -3,12 +3,14 @@ import MoonIcon from "./icons/MoonIcon";
 import IconSun from "./icons/IconSun";
 
 const Header = () => {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
   useEffect(() => {
     if(darkMode){
-      document.documentElement.classList.add('dark')
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme","dark");
     }else{
-      document.documentElement.classList.remove('dark')
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem ("theme","light");
     }
 
   }, [darkMode])
