@@ -57,7 +57,7 @@ const filteredTodos = () =>{
   return (
     <div className="min-h-screen bg-gray-300 bg-[url('./assets/images/bg-mobile-light.jpg')] bg-contain bg-no-repeat dark:bg-gray-900">
     
-    <Header />
+   {/*  <Header /> */}
 
     <main className="container mx-auto px-4 mt-8">
 
