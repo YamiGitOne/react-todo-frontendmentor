@@ -5,7 +5,7 @@ const TodoItem = ({todo, removeTodo, updateTodo}) => {
 const{ id, title, completed } = todo;
 
     return (
-        <article className="flex gap-4  border-b border-b-gray-300 dark:bg-gray-800">
+        <article className="flex gap-4  border-b border-b-gray-300 dark:bg-gray-700">
         <button
          className={`${
             completed
