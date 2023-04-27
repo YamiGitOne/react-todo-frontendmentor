@@ -1,1 +1,1 @@
-[Preview](https://react-todo-frontendmentor-yamii.netlify.app/)
+[Previsualizar proyecto](https://react-todo-frontendmentor-yamii.netlify.app/)
