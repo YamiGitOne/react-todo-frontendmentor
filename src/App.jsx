@@ -1,4 +1,4 @@
-
+import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 import Header from "./components/Header";
 import TodoComputed from "./components/TodoComputed";
 import TodoCreate from "./components/TodoCreate";
@@ -79,8 +79,9 @@ const filteredTodos = () =>{
 
     <TodoCreate createTodo={createTodo} />
 
+    <DragDropContext>
     <TodoList todos={filteredTodos()} removeTodo={removeTodo} updateTodo={updateTodo}/>
-
+    </DragDropContext>
     <TodoComputed computedItemsLeft={computedItemsLeft}  clearCompleted={clearCompleted}/>
     
 
