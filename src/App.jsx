@@ -4,17 +4,31 @@ import TodoComputed from "./components/TodoComputed";
 import TodoCreate from "./components/TodoCreate";
 import TodoList from "./components/TodoList"
 import TodoFilter from "./components/TodoFilter";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const initialStateTodos = [
+/* const initialStateTodos = [
   {id: 1, title: "complete online...", completed: true},
   {id: 2, title: "go to", completed: false},
   {id: 3, title: "10 minutes", completed: false},
   {id: 4, title: "pick up groceries", completed: false},
   {id: 5, title: "completed todo app", completed: false},
-]
+] */
+
+//con esta linea sustituyo los datos anteriores para que javascript reciba o lea y entienda las tareas guardadas o eliminadas y las muestre 
+//el condicional || [] devuelve un array vacio en caso de que nohaya dato relacionado con "todos"
+const initialStateTodos = JSON.parse(localStorage.getItem("todos")) || [];
+
 const App = () => {
   const [todos, setTodos] = useState(initialStateTodos);
+
+  //este hook esta atento a los cambios en los "todos" y los almacena o envia como un string en el localStorage
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  //console.log("todos");
+  },[todos]);
+
+
+
 
   const createTodo = (title) => {
     const newTodo = {
@@ -56,11 +70,12 @@ const filteredTodos = () =>{
 
   return (
     <div className="min-h-screen bg-gray-300 bg-[url('./assets/images/bg-mobile-light.jpg')] 
-    bg-contain bg-no-repeat dark:bg-gray-900 dark:bg-[url('./assets/images/bg-mobile-dark.jpg')]">
+    bg-contain bg-no-repeat dark:bg-gray-900 dark:bg-[url('./assets/images/bg-mobile-dark.jpg')] 
+    md:bg-[url('./assets/images/bg-desktop-light.jpg')] md:dark:bg-[url('./assets/images/bg-desktop-dark.jpg')]">
     
     <Header />
 
-    <main className="container mx-auto px-4 mt-8">
+    <main className="container mx-auto px-4 mt-8 md:max-w-xl">
 
     <TodoCreate createTodo={createTodo} />
 
@@ -75,7 +90,7 @@ const filteredTodos = () =>{
 
 
    
-    <footer className="dark:bg-gray-800 text-center mt-8">Drag and drop to reorder list</footer>
+    <footer className="dark:bg-gray-400 text-center mt-8">Drag and drop to reorder list</footer>
    
 
 
