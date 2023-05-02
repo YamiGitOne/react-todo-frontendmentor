@@ -2,11 +2,16 @@
 import IconCheck from "./IconCheck";
 import CrossIcon from "./icons/CrossIcon";
 import React from "react";
+
 const TodoItem = React.forwardRef(({todo, removeTodo, updateTodo, ...props }, ref) => {
     const{ id, title, completed } = todo;
     
         return (
-            <article {...props} ref={ref} className="flex gap-4  border-b border-b-gray-300 dark:bg-gray-700">
+            <article 
+            className="flex gap-4  border-b border-b-gray-300 dark:bg-gray-700" 
+            ref={ref}
+            {...props}
+            >
             <button
              className={`${
                 completed
@@ -17,9 +22,7 @@ const TodoItem = React.forwardRef(({todo, removeTodo, updateTodo, ...props }, re
                   }`}
                   onClick={() => updateTodo(id)}
                   >
-    
-                {completed && <IconCheck />}
-                
+                {completed && <IconCheck />}   
             </button>
     
             <p className={`grow text-gray-600 dark:text-gray-400 ${completed && "line-through"}`}>{title}</p>

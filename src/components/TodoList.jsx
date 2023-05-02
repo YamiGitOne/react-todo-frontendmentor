@@ -1,5 +1,7 @@
+
 import { Droppable, Draggable } from "@hello-pangea/dnd";
 import TodoItem from "./TodoItem";
+
 
 const TodoList = ({todos, removeTodo, updateTodo}) => {
     return (
@@ -8,15 +10,17 @@ const TodoList = ({todos, removeTodo, updateTodo}) => {
             {
                 (droppableProvided) => (
                     <div 
-                    ref={droppableProvided.innerRef} 
+                    className="rounded-t-md bg-white overflow-hidden mt-8 dark:bg-gray-700 [&>article]:p-4"
                     {...droppableProvided.droppableProps} 
-                    className="rounded-t-md bg-white overflow-hidden mt-8 dark:bg-gray-700 [&>article]:p-4">
+                    ref={droppableProvided.innerRef} 
+                    >
 
                     {todos.map((todo, index) => (
                         <Draggable 
                         key={todo.id} 
                         index={index} 
-                        draggableId={`${todo.id}`}>
+                        draggableId={`${todo.id}`}
+                        >
                             {(draggableProvided) => (
                                 <TodoItem 
                                 todo={todo} 
@@ -29,7 +33,7 @@ const TodoList = ({todos, removeTodo, updateTodo}) => {
                                 )}
                         </Draggable>
                     ))}
-                    {droppableProvided.placeholders}
+                    {droppableProvided.placeholder}
                     </div>
                 )
             }
